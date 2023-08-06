@@ -269,7 +269,7 @@ begin
         din_layer3 <= 16'd0;
     else
         case(state)
-            CONV1 :if(cnt_addr_ctrl == 149) din_layer3 <= (sum_mul+ dout_b > 0) ? sum_mul + dout_b : 0; else din_layer3 <= din_layer3;
+            CONV1 :if(cnt_addr_ctrl == 8'd149) din_layer3 <= (sum_mul+ dout_b > 0) ? sum_mul + dout_b : 0; else din_layer3 <= din_layer3;
             default : din_layer3 <= din_layer3;
             endcase
 end
@@ -280,9 +280,9 @@ begin
     addr_layer3_reg <= 0;
     else
     case(state)
-    CONV1 : if(cnt_addr_ctrl == 0  && cnt_entire > 155 && addr_layer3_reg != 1599) addr_layer3_reg <= addr_layer3_reg + 1'd1; 
-    else if(addr_layer3_reg == 1599 && cnt_addr_ctrl == 0) addr_layer3_reg <= 0;  
-    else addr_layer3_reg <= addr_layer3_reg;
+    CONV1 : if(cnt_addr_ctrl == 16'd0  && cnt_entire > 155 && addr_layer3_reg != 1599) addr_layer3_reg <= addr_layer3_reg + 1'd1; 
+            else if(addr_layer3_reg == 11'd1599 && cnt_addr_ctrl == 16'd0) addr_layer3_reg <= 11'd0;  
+            else addr_layer3_reg <= addr_layer3_reg;
     default addr_layer3_reg <= addr_layer3_reg;
     endcase
 end
