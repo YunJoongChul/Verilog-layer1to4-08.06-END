@@ -283,7 +283,6 @@ begin
     CONV1 : if(cnt_addr_ctrl == 0  && cnt_entire > 155 && addr_layer3_reg != 1599) addr_layer3_reg <= addr_layer3_reg + 1'd1; 
     else if(addr_layer3_reg == 1599 && cnt_addr_ctrl == 0) addr_layer3_reg <= 0;  
     else addr_layer3_reg <= addr_layer3_reg;
-   // DONE : addr_ram <= addr_ram + 1'd1;
     default addr_layer3_reg <= addr_layer3_reg;
     endcase
 end
